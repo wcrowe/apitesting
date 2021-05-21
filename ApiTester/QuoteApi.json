@@ -1,0 +1,1235 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Quote Api",
+    "description": "Quote service",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/Quote_API"
+    }
+  ],
+  "paths": {
+    "/api/Quote/GetUSState": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "zipCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetHeightWeightUWCode": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "weight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "planPrefix",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "appSignDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetIssueAge": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "asOfDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "dateOfBirth",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetHHDStates": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetPlanCode": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "issueState",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "zipCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          {
+            "name": "plan",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "effectiveDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "dateOfBirth",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "partBDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Gender"
+            }
+          },
+          {
+            "name": "tobacco",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "spouseDiscount",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "guaranteeIssue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "planPrefix",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PlanPrefix"
+            }
+          },
+          {
+            "name": "partADate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetPlansAvailable": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "issueState",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          {
+            "name": "effectiveDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "partBDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "dateOfBirth",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "planPrefix",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PlanPrefix"
+            }
+          },
+          {
+            "name": "partADate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetRateIncrSeq": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "issueState",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "planCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "inDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "applicationDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetQuote": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "DateOfBirth",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "EffectiveDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PartBDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PartADate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Zip",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "pattern": "^\\d{5}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Gender",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Gender"
+            }
+          },
+          {
+            "name": "Tobacco",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Product",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          {
+            "name": "Interval",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Interval"
+            }
+          },
+          {
+            "name": "PlanSelected",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "ALL",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Height",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Weight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "DiscountOption",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/DiscountOption"
+            }
+          },
+          {
+            "name": "AppDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ReturnBenefits",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PlanPrefix",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PlanPrefix"
+            }
+          },
+          {
+            "name": "GiAnswer",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/GetQuoteExistingPlanCode": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "planCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "issueState",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "zipCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "issueAge",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Gender"
+            }
+          },
+          {
+            "name": "effectiveDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Interval"
+            }
+          },
+          {
+            "name": "discountCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "uwCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quote/SaveSelectedQuoteParams": {
+      "post": {
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "PolicyAnswerSubmissionId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "DateOfBirth",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "EffectiveDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PartBDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PartADate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Gender",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Gender"
+            }
+          },
+          {
+            "name": "Tobacco",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          {
+            "name": "Plan",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ALL"
+            }
+          },
+          {
+            "name": "PlanCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Height",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Weight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "DiscountOption",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DiscountOption"
+            }
+          },
+          {
+            "name": "GuaranteedIssue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "UnderwritingCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Source",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "FirstName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "MiddleInitial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "LastName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Phone",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Email",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Address1",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Address2",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "City",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "USState",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "ZipCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "pattern": "^\\d{5}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "RequestIPAddress",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "MonthlyPremium",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "AnnualPremium",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "UserName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "enum": [
+          "Standard",
+          "Direct",
+          "Select"
+        ],
+        "type": "string"
+      },
+      "Gender": {
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string"
+      },
+      "PlanPrefix": {
+        "enum": [
+          "None",
+          "MX",
+          "MD",
+          "MM"
+        ],
+        "type": "string"
+      },
+      "Interval": {
+        "enum": [
+          "One",
+          "Two",
+          "Four",
+          "Twelve",
+          "Thirteen"
+        ],
+        "type": "string"
+      },
+      "DiscountOption": {
+        "enum": [
+          "NoDiscount",
+          "HHD",
+          "MultiLine",
+          "HHDAndMultiLine"
+        ],
+        "type": "string"
+      },
+      "QuoteInputParams": {
+        "required": [
+          "clientCode",
+          "dateOfBirth",
+          "discountOption",
+          "effectiveDate",
+          "gender",
+          "interval",
+          "partADate",
+          "partBDate",
+          "planPrefix",
+          "product",
+          "zip"
+        ],
+        "type": "object",
+        "properties": {
+          "clientCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "effectiveDate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "partBDate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "partADate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "zip": {
+            "minLength": 1,
+            "pattern": "^\\d{5}$",
+            "type": "string"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "tobacco": {
+            "type": "boolean"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/Interval"
+          },
+          "planSelected": {
+            "type": "string",
+            "default": "ALL",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discountOption": {
+            "$ref": "#/components/schemas/DiscountOption"
+          },
+          "appDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "returnBenefits": {
+            "type": "boolean"
+          },
+          "planPrefix": {
+            "$ref": "#/components/schemas/PlanPrefix"
+          },
+          "giAnswer": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelectedQuoteParams": {
+        "required": [
+          "clientCode",
+          "dateOfBirth",
+          "effectiveDate",
+          "gender",
+          "partADate",
+          "partBDate",
+          "password",
+          "plan",
+          "userName",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "policyAnswerSubmissionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "effectiveDate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "partBDate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "partADate": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "tobacco": {
+            "type": "boolean"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "plan": {
+            "type": "string",
+            "default": "ALL"
+          },
+          "planCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discountOption": {
+            "$ref": "#/components/schemas/DiscountOption"
+          },
+          "guaranteedIssue": {
+            "type": "boolean"
+          },
+          "underwritingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleInitial": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "usState": {
+            "type": "string",
+            "nullable": true
+          },
+          "zipCode": {
+            "minLength": 1,
+            "pattern": "^\\d{5}$",
+            "type": "string"
+          },
+          "requestIPAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "monthlyPremium": {
+            "type": "number",
+            "format": "double"
+          },
+          "annualPremium": {
+            "type": "number",
+            "format": "double"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
